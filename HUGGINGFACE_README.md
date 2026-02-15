@@ -22,7 +22,7 @@ size_categories:
 
 # US Disasters Mashup
 
-54,575 disasters: plane crashes, shipwrecks, severe storms, earthquakes
+48,592 disasters: plane crashes, shipwrecks, severe storms, earthquakes
 
 Unified dataset combining four major US disaster categories from government sources: NTSB aviation accidents, NOAA shipwrecks, NOAA severe storms, and USGS earthquakes. All data is public domain.
 
