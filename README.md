@@ -48,20 +48,20 @@ dataset_info:
       dtype: float64
   splits:
     - name: train
-      num_examples: 54575
+      num_examples: 48592
 ---
 
 # US Disasters Mashup
 
-**54,575 disaster events** pulled from four US government databases into one flat JSON file. Plane crashes, shipwrecks, tornadoes, earthquakes -- all geocoded and categorized.
+**48,592 disaster events** pulled from four US government databases into one flat JSON file. Plane crashes, shipwrecks, tornadoes, earthquakes -- all geocoded and categorized.
 
 ## What's In It
 
 | Category | Records | Source | Date Range |
 |----------|---------|--------|------------|
-| Aviation Accidents | 32,410 | NTSB | 1974-2018 |
+| Aviation Accidents | 26,427 | NTSB | 1974-2018 |
 | Severe Storms | 14,770 | NOAA Storm Events | 1950-2025 |
-| Earthquakes | 3,742 | USGS | Ongoing |
+| Earthquakes | 3,742 | USGS | 2020-2025 |
 | Shipwrecks | 3,653 | NOAA AWOIS | Historical (1600s-1970s) |
 
 ## Fields
@@ -121,10 +121,10 @@ Every record has core fields (category, latitude, longitude, name, date, subcate
 
 A few things worth knowing if you're working with this data:
 
-- **Aviation dates are year-only.** All 32,410 aviation records show `YYYY-01-01`. The actual dates are embedded in the event IDs (e.g., `20121010X84549` = Oct 10, 2012) but the date field just has the year.
-- **Earthquake dates are Unix timestamps**, not ISO format. Convert with `datetime.fromtimestamp()`.
-- **~5,983 duplicate aviation records** from overlapping source files. Deduplicate on `event_id` if you need unique events.
-- **Coordinates extend beyond CONUS.** About 3,200 records are in Hawaii, Alaska, territories, or international waters. Expected for aviation and maritime data.
+- **Aviation dates are year-only.** Aviation records show `YYYY-01-01`. The actual dates are embedded in the event IDs (e.g., `20121010X84549` = Oct 10, 2012) but the date field just has the year.
+- **Earthquake dates are ISO format** (`YYYY-MM-DD`), converted from Unix timestamps.
+- **Aviation records are deduplicated** on `event_id` (5,983 duplicates removed from source overlaps).
+- **Coordinates extend beyond CONUS.** Some records are in Hawaii, Alaska, territories, or international waters. Expected for aviation and maritime data.
 - **`depth_km` is always null.** The field exists in the schema but was never populated.
 
 ## Loading
