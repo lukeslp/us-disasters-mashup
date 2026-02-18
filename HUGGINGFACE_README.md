@@ -55,6 +55,12 @@ with open('data.json') as f:
 }
 ```
 
+
+## Distribution
+
+- **GitHub**: [lukeslp/us-disasters-mashup](https://github.com/lukeslp/us-disasters-mashup)
+- **Kaggle**: [lucassteuber/us-disasters-mashup](https://www.kaggle.com/datasets/lucassteuber/us-disasters-mashup)
+
 ## Author
 
 **Luke Steuber**
